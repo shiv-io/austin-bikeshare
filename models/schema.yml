@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: trips
+    description: One record per trip
+    columns:
+      - name: name
+        tests:
+          - not_null
+      - name: station_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - accepted_values:
+              values: ["closed", "active"]
+      - name: trip_id
+        description: Primary key
+        tests: 
+          - unique
